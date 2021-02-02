@@ -15,27 +15,27 @@ namespace ConsoleUI
             Console.WriteLine("First List");
             foreach (var car in carService.GetAll())
             {
-                Console.WriteLine(car.CarId+" "+car.Description);
+                Console.WriteLine(car.CarId + " - " + car.BrandId + " - " + car.Description + " - " + car.DailyPrice + " - " + car.ColorId + " - " + car.ModelYear);
             }
-            
+
 
 
             Console.WriteLine("                                              ");
             Console.WriteLine("After Add");
-            carService.Add(new Car{ CarId = 5, BrandId = 1, ColorId = 1, DailyPrice = 150000, Description = "Kia", ModelYear = "2012" });
+            carService.Add(new Car { CarId = 5, BrandId = 1, ColorId = 1, DailyPrice = 150000, Description = "Kia", ModelYear = "2012" });
             foreach (var car in carService.GetAll())
             {
-                Console.WriteLine(car.CarId + " " + car.Description);
+                Console.WriteLine(car.CarId + " - " + car.BrandId + " - " + car.Description + " - " + car.DailyPrice + " - " + car.ColorId + " - " + car.ModelYear);
             }
-           
+
 
 
             Console.WriteLine("                                              ");
             Console.WriteLine("After Update");
-            carService.Update(new Car{ CarId = 1, BrandId = 1, ColorId = 1, DailyPrice = 150000, Description = "Honda", ModelYear = "2012" });
+            carService.Update(new Car { CarId = 1, BrandId = 1, ColorId = 1, DailyPrice = 150000, Description = "Honda", ModelYear = "2012" });
             foreach (var car in carService.GetAll())
             {
-                Console.WriteLine(car.CarId + " " + car.Description);
+                Console.WriteLine(car.CarId + " - " + car.BrandId + " - " + car.Description + " - " + car.DailyPrice + " - " + car.ColorId + " - " + car.ModelYear);
             }
 
 
@@ -44,16 +44,16 @@ namespace ConsoleUI
             carService.Delete(new Car { CarId = 1, BrandId = 2, ColorId = 1, DailyPrice = 135000, Description = "Skoda", ModelYear = "2019" });
             foreach (var car in carService.GetAll())
             {
-                Console.WriteLine(car.CarId + " " + car.Description);
+                Console.WriteLine(car.CarId + " - " + car.BrandId + " - " + car.Description + " - " + car.DailyPrice + " - " + car.ColorId + " - " + car.ModelYear);
             }
 
             Console.WriteLine("                                              ");
             Console.WriteLine("After Get By Id");
             foreach (var car in carService.GetById(2))
             {
-                Console.WriteLine(car.CarId + " " + car.Description);
+                Console.WriteLine(car.CarId + " - " + car.BrandId + " - " + car.Description + " - " + car.DailyPrice + " - " + car.ColorId + " - " + car.ModelYear);
             }
-          
+
 
 
 

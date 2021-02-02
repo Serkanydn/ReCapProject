@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Entities.Concrete
 {
-    public class Category : IEntity
+    public class Brand : IEntity
     {
     }
 }

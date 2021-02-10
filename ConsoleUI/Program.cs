@@ -40,7 +40,25 @@ namespace ConsoleUI
             {
                 Console.WriteLine(car.BrandId + "           -   " + car.ColorId + "       -   " + car.ModelYear + "      -   " + car.Description + "         ---> " + car.DailyPrice + " TL");
             }
-
+            Console.WriteLine("                                               ");
+            Console.WriteLine("------Add İşlemi Sonrası------");
+            Console.WriteLine("Marka Id     Renk Id     Model Yılı          Açıklama              Günlük ücret");
+            Console.WriteLine("---------------------------------------------");
+            Car car1 = new Car
+            {
+                CarId = 9,
+                BrandId = 2,
+                ColorId = 5,
+                DailyPrice = 250,
+                Description = "Subaru",
+                ModelYear = "2018",
+            };
+            carManager.Add(car1) ;
+            foreach (var car in carManager.GetAll())
+            {
+                Console.WriteLine(car.Description);
+            }
+           
 
             BrandManager brandManager = new BrandManager(new EFBrandDal());
             Console.WriteLine("                                               ");

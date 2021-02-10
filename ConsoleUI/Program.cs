@@ -22,6 +22,24 @@ namespace ConsoleUI
             {
                 Console.WriteLine(car.BrandId + "           -   " + car.ColorId + "       -   " + car.ModelYear + "      -   " + car.Description + "         ---> " + car.DailyPrice + " TL");
             }
+            Console.WriteLine("                                               ");
+            Console.WriteLine("------Markaya Göre------");
+            Console.WriteLine("Marka Id     Renk Id     Model Yılı          Açıklama              Günlük ücret");
+            Console.WriteLine("---------------------------------------------");
+            
+            foreach (var car in carManager.GetByBrandId(1))
+            {
+                Console.WriteLine(car.BrandId + "           -   " + car.ColorId + "       -   " + car.ModelYear + "      -   " + car.Description + "         ---> " + car.DailyPrice + " TL");
+            }
+            Console.WriteLine("                                               ");
+            Console.WriteLine("------Renge Göre------");
+            Console.WriteLine("Marka Id     Renk Id     Model Yılı          Açıklama              Günlük ücret");
+            Console.WriteLine("---------------------------------------------");
+           
+            foreach (var car in carManager.GetByColorId(2))
+            {
+                Console.WriteLine(car.BrandId + "           -   " + car.ColorId + "       -   " + car.ModelYear + "      -   " + car.Description + "         ---> " + car.DailyPrice + " TL");
+            }
 
 
             BrandManager brandManager = new BrandManager(new EFBrandDal());

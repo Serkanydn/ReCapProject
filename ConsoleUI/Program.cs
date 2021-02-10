@@ -46,11 +46,11 @@ namespace ConsoleUI
             Console.WriteLine("---------------------------------------------");
             Car car1 = new Car
             {
-                CarId = 9,
+                CarId = 12,
                 BrandId = 2,
                 ColorId = 5,
                 DailyPrice = 250,
-                Description = "Subaru",
+                Description = "",
                 ModelYear = "2018",
             };
             carManager.Add(car1) ;

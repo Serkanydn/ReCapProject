@@ -1,5 +1,6 @@
 ﻿using Business.Abstract;
 using Business.Concrete;
+using DataAccess.Concrete.EntityFramework;
 using DataAccess.Concrete.InMemory;
 using Entities.Concrete;
 using System;
@@ -11,47 +12,38 @@ namespace ConsoleUI
         static void Main(string[] args)
         {
 
-            ICarService carService = new CarManager(new InMemoryCarDal());
-            Console.WriteLine("First List");
-            foreach (var car in carService.GetAll())
+            CarManager carManager = new CarManager(new EFCarDal());
+
+            Console.WriteLine("------GÜNLÜK ARAÇ KİRA FİYATLARI------");
+            Console.WriteLine("---------------------------------------------");
+            Console.WriteLine("Marka Id     Renk Id     Model Yılı          Açıklama              Günlük ücret");
+            Console.WriteLine("--------     -------     ----------          --------              ------------");
+            foreach (var car in carManager.GetAll())
             {
-                Console.WriteLine(car.CarId + " - " + car.BrandId + " - " + car.Description + " - " + car.DailyPrice + " - " + car.ColorId + " - " + car.ModelYear);
+                Console.WriteLine(car.BrandId + "           -   " + car.ColorId + "       -   " + car.ModelYear + "      -   " + car.Description + "         ---> " + car.DailyPrice + " TL");
             }
 
 
-
-            Console.WriteLine("                                              ");
-            Console.WriteLine("After Add");
-            carService.Add(new Car { CarId = 5, BrandId = 1, ColorId = 1, DailyPrice = 150000, Description = "Kia", ModelYear = "2012" });
-            foreach (var car in carService.GetAll())
+            BrandManager brandManager = new BrandManager(new EFBrandDal());
+            Console.WriteLine("                                               ");
+            Console.WriteLine("------ARAÇ MARKA ID VE MARKA ADI BİLGİSİ------");
+            Console.WriteLine("                                               ");
+            Console.WriteLine("Marka Id     Marka Adı");
+            Console.WriteLine("--------     ---------");
+            foreach (var brand in brandManager.GetAll())
             {
-                Console.WriteLine(car.CarId + " - " + car.BrandId + " - " + car.Description + " - " + car.DailyPrice + " - " + car.ColorId + " - " + car.ModelYear);
+                Console.WriteLine(brand.BrandId + "       --->  " + brand.BrandName);
             }
 
-
-
-            Console.WriteLine("                                              ");
-            Console.WriteLine("After Update");
-            carService.Update(new Car { CarId = 1, BrandId = 1, ColorId = 1, DailyPrice = 150000, Description = "Honda", ModelYear = "2012" });
-            foreach (var car in carService.GetAll())
+            ColorManager colorManager = new ColorManager(new EFColorDal());
+            Console.WriteLine("                                               ");
+            Console.WriteLine("------ARAÇ RENK ID VE MARKA ADI BİLGİSİ------");
+            Console.WriteLine("                                               ");
+            Console.WriteLine("Renk Id     Renk Adı");
+            Console.WriteLine("-------     --------");
+            foreach (var color in colorManager.GetAll())
             {
-                Console.WriteLine(car.CarId + " - " + car.BrandId + " - " + car.Description + " - " + car.DailyPrice + " - " + car.ColorId + " - " + car.ModelYear);
-            }
-
-
-            Console.WriteLine("                                              ");
-            Console.WriteLine("After Delete");
-            carService.Delete(new Car { CarId = 1, BrandId = 2, ColorId = 1, DailyPrice = 135000, Description = "Skoda", ModelYear = "2019" });
-            foreach (var car in carService.GetAll())
-            {
-                Console.WriteLine(car.CarId + " - " + car.BrandId + " - " + car.Description + " - " + car.DailyPrice + " - " + car.ColorId + " - " + car.ModelYear);
-            }
-
-            Console.WriteLine("                                              ");
-            Console.WriteLine("After Get By Id");
-            foreach (var car in carService.GetById(2))
-            {
-                Console.WriteLine(car.CarId + " - " + car.BrandId + " - " + car.Description + " - " + car.DailyPrice + " - " + car.ColorId + " - " + car.ModelYear);
+                Console.WriteLine(color.ColorId + "       --->  " + color.ColorName);
             }
 
 

@@ -6,6 +6,7 @@ using System.Text;
 
 namespace Entities.Concrete
 {
+    //Color feature class
     public class Color : IEntity
     {
         public int ColorId { get; set; }

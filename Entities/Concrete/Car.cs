@@ -6,6 +6,7 @@ using System.Text;
 
 namespace Entities.Concrete
 {
+    //Car feature class
     public class Car : IEntity
     {
         public int CarId { get; set; }

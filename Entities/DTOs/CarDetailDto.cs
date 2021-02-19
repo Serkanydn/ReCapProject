@@ -4,6 +4,7 @@ using System.Text;
 
 namespace Entities.DTOs
 {
+    //Car detail feature class
     public class CarDetailDto
     {
         public int CarId { get; set; }

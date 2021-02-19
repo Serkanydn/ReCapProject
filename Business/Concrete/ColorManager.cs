@@ -1,4 +1,6 @@
 ﻿using Business.Abstract;
+using Core.Utilities.Abstract;
+using Core.Utilities.Concrete;
 using DataAccess.Abstract;
 using Entities.Concrete;
 using System;
@@ -7,6 +9,7 @@ using System.Text;
 
 namespace Business.Concrete
 {
+    //Class that runs the color's operations conditionally
     public class ColorManager : IColorService
     {
         IColorDal _colorDal;
@@ -16,24 +19,27 @@ namespace Business.Concrete
             _colorDal = colorDal;
         }
 
-        public void Add(Color color)
+        public IResult Add(Color color)
         {
-            throw new NotImplementedException();
+            _colorDal.Update(color);
+            return new SuccessResult("Güncellendi.");
         }
 
-        public void Delete(Color color)
+        public IResult Delete(Color color)
         {
-            throw new NotImplementedException();
+            _colorDal.Update(color);
+            return new SuccessResult("Güncellendi.");
         }
 
-        public List<Color> GetAll()
+        public IDataResult<List<Color>> GetAll()
         {
-            return _colorDal.GetAll();
+            return new SuccessDataResult<List<Color>> (_colorDal.GetAll(),"Renklerimiz Listelendi.");
         }
 
-        public void Update(Color color)
+        public IResult Update(Color color)
         {
-            throw new NotImplementedException();
+            _colorDal.Update(color);
+            return new SuccessResult("Güncellendi.");
         }
     }
 }

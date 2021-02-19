@@ -10,6 +10,7 @@ using System.Text;
 
 namespace DataAccess.Concrete.EntityFramework
 {
+    ////Car specific operation
     public class EFBrandDal : EfEntityRepositoryBase<Brand,ReCapSqlContext>, IBrandDal
     {
        

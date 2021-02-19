@@ -10,6 +10,7 @@ using System.Text;
 
 namespace DataAccess.Concrete.EntityFramework
 {
+    //Color specific operations
     public class EFColorDal : EfEntityRepositoryBase<Color,ReCapSqlContext>, IColorDal
     {
         

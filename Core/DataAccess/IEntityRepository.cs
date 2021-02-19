@@ -6,6 +6,7 @@ using System.Text;
 
 namespace Core.DataAccess.EntityFramework
 {
+    //Global abstract operation 
     public interface IEntityRepository<T> where T:class ,IEntity,new()
     {
         List<T> GetAll(Expression<Func<T, bool>> filter = null);

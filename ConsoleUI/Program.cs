@@ -15,7 +15,10 @@ namespace ConsoleUI
             CarManager carManager = new CarManager(new EFCarDal());
             ColorManager colorManager = new ColorManager(new EFColorDal());
             BrandManager brandManager = new BrandManager(new EFBrandDal());
-            var resultCar = carManager.GetAll();
+            UserManager userManager = new UserManager(new EfUserDal());
+            CustomerManager customerManager = new CustomerManager(new EfCustomerDal());
+            RentalManager rentalManager = new RentalManager(new EfRentalDal()) ;
+          /*  var resultCar = carManager.GetAll();
             foreach (var car in resultCar.Data)
             {
                 Console.WriteLine( car.CarId+"   "+car.BrandId+"   "+car.ColorId+"   "+car.DailyPrice+"   "+car.Description+"   "+car.ModelYear );
@@ -33,6 +36,28 @@ namespace ConsoleUI
                 Console.WriteLine(brand.BrandName+brand.BrandId);
             }
 
+            var resultCustomer = customerManager.GetCustomerDetailDtos();
+            foreach (var customer in resultCustomer.Data)
+            {
+                Console.WriteLine(customer.UserId+" "+ customer.FirstName+" "+ customer.LastName+" "+ customer.CompanyName);
+            }*/
+
+            var resultRental = rentalManager.GetAll();
+            foreach (var rental in resultRental.Data)
+            {
+                Console.WriteLine(rental.CarId +" "+rental.CustomerId+" "+rental.RentalId+" "+rental.RentDate);
+            }
+            Console.WriteLine("*************************");
+             rentalManager.Add(
+                new Rental {CarId=16,CustomerId=5,RentalId=6 }
+                ) ;
+
+            foreach (var rental in resultRental.Data)
+            {
+                Console.WriteLine(rental.CarId + " " + rental.CustomerId + " " + rental.RentalId + " " + rental.RentDate);
+            }
+
+
 
             //Console.WriteLine(result);
             //CarManagerGetCarDetailDtosTest(carManager);
@@ -41,7 +66,7 @@ namespace ConsoleUI
             //CarManagerGetBrandIdTest(carManager);
             //CarManagerGetByIdTest(carManager);
 
-            CarManagerAddUpdateDeleteTest(carManager);
+            //CarManagerAddUpdateDeleteTest(carManager);
 
 
             //BrandManagerTest();

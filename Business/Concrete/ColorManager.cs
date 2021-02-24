@@ -21,13 +21,13 @@ namespace Business.Concrete
 
         public IResult Add(Color color)
         {
-            _colorDal.Update(color);
+            _colorDal.Add(color);
             return new SuccessResult("Güncellendi.");
         }
 
         public IResult Delete(Color color)
         {
-            _colorDal.Update(color);
+            _colorDal.Delete(color);
             return new SuccessResult("Güncellendi.");
         }
 

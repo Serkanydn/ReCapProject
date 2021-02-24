@@ -3,6 +3,7 @@ using Core.Utilities.Abstract;
 using Core.Utilities.Concrete;
 using DataAccess.Abstract;
 using Entities.Concrete;
+using Entities.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -12,10 +13,7 @@ namespace Business.Concrete
     public class RentalManager : IRentalService
     {
         IRentalDal _rentalDal;
-        public RentalManager()
-        {
-        }
-
+        
         public RentalManager(IRentalDal rentalDal)
         {
             _rentalDal = rentalDal;
@@ -23,17 +21,17 @@ namespace Business.Concrete
 
         public IResult Add(Rental rental)
         {
-           
-            var result = (_rentalDal.GetAll(r => r.ReturnDate == null));
-            if (result.Count > 0)
+            RentalDetailDto rentalDetailDto;
+            rentalDetailDto = _rentalDal.GetRentalDetailsByCarId(rental.CarId);
+            if (rentalDetailDto == null)
             {
-                _rentalDal.Add(rental);
-                return new SuccessResult("Eklendi.");
+                var result = _rentalDal.GetRentalDetailsByCarId(rental.CarId); ;
 
+                _rentalDal.Add(rental);
+                return new SuccessResult("Kiralandı.");
             }
-                
-            else
-                return new ErrorResult("Eklenemedi");
+            return new ErrorResult("Kiralanamadı.");
+           
         }
 
         public IResult Delete(Rental rental)
@@ -44,15 +42,30 @@ namespace Business.Concrete
 
         public IDataResult<List<Rental>> GetAll()
         {
-            return new SuccessDataResult<List<Rental>>(_rentalDal.GetAll()); ;
+            return new SuccessDataResult<List<Rental>>(_rentalDal.GetAll()); 
         }
 
-        
+        public IDataResult<List<RentalDetailDto>> GetRentalDetailDtos()
+        {
+            return new SuccessDataResult<List<RentalDetailDto>>(_rentalDal.GetRentalDetailDtos());
+        }
+
+        public IDataResult<RentalDetailDto> GetRentalDetailsByCarId(int id)
+        {
+            return new SuccessDataResult<RentalDetailDto>(_rentalDal.GetRentalDetailsByCarId(id));;
+        }
 
         public IResult Update(Rental rental)
         {
-             _rentalDal.Update(rental);
-            return new SuccessResult("Güncellendi.");
+            RentalDetailDto rentalDetailDto = _rentalDal.GetRentalDetailsByCarId(rental.CarId);
+            rental.CarId = rentalDetailDto.CarId;
+            rental.CustomerId = rentalDetailDto.CustomerId;
+            rental.RentDate = rentalDetailDto.RentDate;
+            rental.ReturnDate = DateTime.Now;
+            rental.RentalId = rentalDetailDto.RentalId;
+
+            _rentalDal.Update(rental);
+            return new SuccessResult("Eklendi.");
         }
     }
 }

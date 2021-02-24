@@ -60,7 +60,6 @@ namespace Core.DataAccess.EntityFramework
 
                 var contextAdded = context.Entry(entity);
                 contextAdded.State = EntityState.Modified;
-                context.SaveChanges();
             }
         }
     }

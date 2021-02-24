@@ -42,7 +42,7 @@ namespace ConsoleUI
                 Console.WriteLine(customer.UserId+" "+ customer.FirstName+" "+ customer.LastName+" "+ customer.CompanyName);
             }*/
 
-            var resultRental = rentalManager.GetAll();
+           /* var resultRental = rentalManager.GetAll();
             foreach (var rental in resultRental.Data)
             {
                 Console.WriteLine(rental.CarId +" "+rental.CustomerId+" "+rental.RentalId+" "+rental.RentDate);
@@ -56,13 +56,13 @@ namespace ConsoleUI
             {
                 Console.WriteLine(rental.CarId + " " + rental.CustomerId + " " + rental.RentalId + " " + rental.RentDate);
             }
-
+           */
 
 
             //Console.WriteLine(result);
             //CarManagerGetCarDetailDtosTest(carManager);
 
-            //CarManagerGetAllTest(carManager);
+            CarManagerGetAllTest(carManager);
             //CarManagerGetBrandIdTest(carManager);
             //CarManagerGetByIdTest(carManager);
 

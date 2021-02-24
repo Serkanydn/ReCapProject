@@ -23,18 +23,12 @@ namespace Business.Concrete
 
         public IResult Add(Car car)
         {
-            if (car.Description.Length <= 2 || car.DailyPrice <= 0)
-            {
-
-                return new ErrorResult("Lütfen Günlük ücreti ya da ürün açıklamasını düzeltin.");
-            }
-                
-            else
-            {
+           
                 _carDal.Add(car);
                 return new SuccessResult("Eklendi.");
 
-            }
+
+            
                
         }
 
@@ -57,7 +51,7 @@ namespace Business.Concrete
 
         public IDataResult<List<Car>> GetAll()
         {
-            return new SuccessDataResult<List<Car>>(_carDal.GetAll());
+            return new SuccessDataResult<List<Car>>(_carDal.GetAll(),"Listelendi.");
         }
 
         public IDataResult<List<Car>> GetByBrandId(int id)

@@ -6,7 +6,6 @@ using System.Text;
 
 namespace Business.Abstract
 {
-    //Brand Manager abstract operation
     public interface IBrandService
     {
         IDataResult<List<Brand>> GetAll();

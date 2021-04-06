@@ -1,4 +1,4 @@
-﻿using DataAccess.Abstract;
+﻿/*using DataAccess.Abstract;
 using Entities.Concrete;
 using Entities.DTOs;
 using System;
@@ -76,3 +76,4 @@ namespace DataAccess.Concrete.InMemory
         }
     }
 }
+*/

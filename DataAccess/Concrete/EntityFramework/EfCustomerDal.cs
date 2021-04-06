@@ -22,10 +22,10 @@ namespace DataAccess.Concrete.EntityFramework
 
                              from customer in context.Customers
                              join user in context.Users
-                             on customer.UserId equals user.UserId
+                             on customer.UserId equals user.Id
                              select new CustomerDetailDto
                              {
-                                 UserId = user.UserId,
+                                 UserId = user.Id,
                                  FirstName = user.FirstName,
                                  LastName = user.LastName,
                                  CompanyName = customer.CompanyName

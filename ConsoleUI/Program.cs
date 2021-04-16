@@ -1,7 +1,6 @@
 ﻿using Business.Abstract;
 using Business.Concrete;
 using DataAccess.Concrete.EntityFramework;
-using DataAccess.Concrete.InMemory;
 using Entities.Concrete;
 using System;
 
@@ -128,7 +127,7 @@ namespace ConsoleUI
 
             Car car1 = new Car
             {
-                CarId = 13,
+              //  CarId = 13,
                 BrandId = 2,
                 ColorId = 5,
                 DailyPrice = 250,
@@ -137,7 +136,7 @@ namespace ConsoleUI
             };
             Car car2 = new Car
             {
-                CarId = 13,
+             //   CarId = 13,
                 BrandId = 2,
                 ColorId = 5,
                 DailyPrice = 250,
@@ -146,7 +145,7 @@ namespace ConsoleUI
             };
             Car car3 = new Car
             {
-                CarId = 13,
+              //  CarId = 13,
                 BrandId = 2,
                 ColorId = 5,
                 DailyPrice = 250,
@@ -157,7 +156,7 @@ namespace ConsoleUI
             // carManager.Delete(car1);
             var result = carManager.Update(new Car
             {
-                CarId = 9,
+               // CarId = 9,
                 BrandId = 2,
                 ColorId = 3,
                 DailyPrice = 250,
@@ -177,7 +176,7 @@ namespace ConsoleUI
             Console.WriteLine("--------     ---------");
             foreach (var brand in brandManager.GetAll().Data)
             {
-                Console.WriteLine(brand.BrandId + "       --->  " + brand.BrandName);
+              //  Console.WriteLine(brand.BrandId + "       --->  " + brand.BrandName);
             }
         }
 
@@ -191,7 +190,7 @@ namespace ConsoleUI
             Console.WriteLine("-------     --------");
             foreach (var color in colorManager.GetAll().Data)
             {
-                Console.WriteLine(color.ColorId + "       --->  " + color.ColorName);
+              //  Console.WriteLine(color.ColorId + "       --->  " + color.ColorName);
             }
         }
     }

@@ -25,9 +25,9 @@ namespace Business.Concrete
             _carImageDal = carImageDal;
            
         }
-        
 
-        
+
+        [ValidationAspect(typeof(CarImageValidator))]
         public IResult Add(IFormFile file, CarImage carImage)
         {
             var result = BusinessRules.Run(CheckCarImageLimit(carImage.CarId));

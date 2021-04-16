@@ -1,9 +1,10 @@
 ﻿using Business.Abstract;
+using Core.Entity.Concrete;
 using Core.Utilities.Abstract;
 using Core.Utilities.Concrete;
 using Core.Utilities.Security.Hashing;
 using Core.Utilities.Security.JWT;
-using Entities.Concrete;
+
 using Entities.DTOs;
 using System;
 using System.Collections.Generic;

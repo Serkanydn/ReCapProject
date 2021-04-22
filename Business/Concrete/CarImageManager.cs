@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Business.Constants;
 using Business.ValidationRules.FluentValidation;
 using Core.Aspects.Autofac.Validation;
 using Core.Utilities.Abstract;
@@ -39,7 +40,7 @@ namespace Business.Concrete
             carImage.ImagePath = FileHelper.Add(file);
             carImage.Date = DateTime.Now;
             _carImageDal.Add(carImage);
-            return new SuccessResult("Araba Resmi Eklendi.");
+            return new SuccessResult(Messages.CarImageListed);
 
 
         }
@@ -56,12 +57,12 @@ namespace Business.Concrete
             }
 
             _carImageDal.Delete(carImage);
-            return new SuccessResult("Araba Resmi Silindi.");
+            return new SuccessResult(Messages.CarImageDeleted);
         }
 
         public IDataResult<List<CarImage>> GetAll(Expression<Func<CarImage, bool>> filter = null)
         {
-            return new SuccessDataResult<List<CarImage>>(_carImageDal.GetAll(),"Listelendi");
+            return new SuccessDataResult<List<CarImage>>(_carImageDal.GetAll(), Messages.CarImageListed);
         }
 
         public IDataResult<CarImage> GetById(int id)
@@ -75,7 +76,7 @@ namespace Business.Concrete
             carImage.ImagePath = FileHelper.Update(oldpath, file);
             carImage.Date = DateTime.Now;
             _carImageDal.Update(carImage);
-            return new SuccessResult("Araba Resmi Güncellendi.");
+            return new SuccessResult(Messages.CarImageUpdated);
         }
 
 
@@ -84,9 +85,9 @@ namespace Business.Concrete
             var result = _carImageDal.GetAll(c => c.CarId == carId);
             if (result.Count >= 5)
             {
-                return new ErrorResult("Limit Aşımı");
+                return new ErrorResult(Messages.CarImageLimit);
             }
-            return new SuccessResult("Kayıt Başarılı");
+            return new SuccessResult();
         }
     }
 }

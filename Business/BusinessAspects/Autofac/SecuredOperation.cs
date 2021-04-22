@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Microsoft.Extensions.DependencyInjection;
+using Business.Constants;
 
 namespace Business.BusinessAspects.Autofac
 {
@@ -34,7 +35,7 @@ namespace Business.BusinessAspects.Autofac
                     return;
                 }
             }
-            throw new Exception("Yetkiniz Yok");
+            throw new Exception(Messages.AuthorizationDenied);
         }
     }
 }

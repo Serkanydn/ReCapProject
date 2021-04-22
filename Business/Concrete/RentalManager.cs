@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Business.Constants;
 using Business.ValidationRules.FluentValidation;
 using Core.Aspects.Autofac.Validation;
 using Core.Utilities.Abstract;
@@ -26,7 +27,7 @@ namespace Business.Concrete
         {
           
                 _rentalDal.Add(rental);
-                return new SuccessResult("Eklendi");
+                return new SuccessResult(Messages.RentalAdded);
 
 
 
@@ -35,7 +36,7 @@ namespace Business.Concrete
         public IResult Delete(Rental rental)
         {
             _rentalDal.Delete(rental);
-            return new SuccessResult("Silindi.");
+            return new SuccessResult(Messages.RentDeleted);
         }
 
         public IDataResult<List<Rental>> GetAll()
@@ -53,7 +54,7 @@ namespace Business.Concrete
         {
 
             _rentalDal.Update(rental);
-            return new SuccessResult("Eklendi.");
+            return new SuccessResult(Messages.RentUpdated);
         }
     }
 }

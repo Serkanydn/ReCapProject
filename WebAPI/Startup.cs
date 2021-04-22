@@ -1,5 +1,7 @@
 using Business.Abstract;
 using Business.Concrete;
+using Core.DependencyResolvers;
+using Core.Extensions;
 using Core.Utilities.Ioc;
 using Core.Utilities.Security.Encrytion;
 using Core.Utilities.Security.JWT;
@@ -70,7 +72,7 @@ namespace WebAPI
                     };
 
                 });
-            ServiceTool.Create(services);
+            services.AddDependencyResolvers(new ICoreModule[] { new CoreModule() });
 
         }
 

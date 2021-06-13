@@ -84,6 +84,6 @@ JWT
  &#128196; [UserManager.cs ](https://github.com/Serkanydn/ReCapProject/blob/master/Business/Concrete/UserManager.cs)</br>
 
 
-# [Frontend](https://github.com/Serkanydn/ReCapFrontend/tree/master/src/app)</br>
+# [Frontend](https://github.com/Serkanydn/ReCapFrontend)</br>
 
 

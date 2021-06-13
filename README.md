@@ -28,13 +28,13 @@ Layered Architecture Design Pattern,IOC, AOP, Aspects, JWT
 #### &#128194; Concrete
 
 
-&nbsp;&nbsp; &#128196; [Brand.cs ](https://github.com/Serkanydn/ReCapProject/blob/master/Entities/DTOs/Brand.cs)</br>
-&nbsp;&nbsp; &#128196; [Car.cs ](https://github.com/Serkanydn/ReCapProject/blob/master/Entities/DTOs/Car.cs)</br>
-&nbsp;&nbsp; &#128196; [CarImage.cs ](https://github.com/Serkanydn/ReCapProject/blob/master/Entities/DTOs/CarImage.cs)</br>
-&nbsp;&nbsp; &#128196; [Color.cs](https://github.com/Serkanydn/ReCapProject/blob/master/Entities/DTOs/Color.cs)</br>
-&nbsp;&nbsp; &#128196; [Customer.cs ](https://github.com/Serkanydn/ReCapProject/blob/master/Entities/DTOs/Customer.cs)</br>
-&nbsp;&nbsp; &#128196; [Rental.cs ](https://github.com/Serkanydn/ReCapProject/blob/master/Entities/DTOs/Rental.cs)</br>
-
+&nbsp;&nbsp; &#128196; [Brand.cs ](https://github.com/Serkanydn/ReCapProject/blob/master/Entities/Concrete/Brand.cs)</br>
+&nbsp;&nbsp; &#128196; [Car.cs ](https://github.com/Serkanydn/ReCapProject/blob/master/Entities/Concrete/Car.cs)</br>
+&nbsp;&nbsp; &#128196; [CarImage.cs ](https://github.com/Serkanydn/ReCapProject/blob/master/Entities/Concrete/CarImage.cs)</br>
+&nbsp;&nbsp; &#128196; [Color.cs](https://github.com/Serkanydn/ReCapProject/blob/master/Entities/Concrete/Color.cs)</br>
+&nbsp;&nbsp; &#128196; [Customer.cs ](https://github.com/Serkanydn/ReCapProject/blob/master/Entities/Concrete/Customer.cs)</br>
+&nbsp;&nbsp; &#128196; [Rental.cs ](https://github.com/Serkanydn/ReCapProject/blob/master/Entities/Concrete/Rental.cs)</br>
+&nbsp;&nbsp; &#128196; [Payment.cs ](https://github.com/Serkanydn/ReCapProject/blob/master/Entities/Concrete/Payment.cs)</br>
 
 
 
@@ -46,16 +46,36 @@ Core Katmanı evrensel bir katmandır. Geliştirilecek her projede kullanılabil
 
 #### &#128194; Core
 
+&nbsp;&nbsp; &#128196; [Autofac ](https://github.com/Serkanydn/ReCapProject/tree/master/Core/Aspect/Autofac)</br>
+&nbsp;&nbsp; &#128196; [CrossCuttingConcerns.cs ](https://github.com/Serkanydn/ReCapProject/tree/master/Core/CrossCuttingConcerns)</br>
+&nbsp;&nbsp; &#128196; [DataAccess](https://github.com/Serkanydn/ReCapProject/tree/master/Core/DataAccess)</br>
+&nbsp;&nbsp; &#128196; [DependencyResolvers](https://github.com/Serkanydn/ReCapProject/tree/master/Core/DependencyResolvers)</br>
+&nbsp;&nbsp; &#128196; [Entity](https://github.com/Serkanydn/ReCapProject/tree/master/Core/Entity)</br>
+&nbsp;&nbsp; &#128196; [Extensions](https://github.com/Serkanydn/ReCapProject/tree/master/Core/Extensions)</br>
+&nbsp;&nbsp; &#128196; [Utilities](https://github.com/Serkanydn/ReCapProject/tree/master/Core/Utilities)</br>
+
 
 ## Data Access Katmanı
 Data Access Katmanı'nda Abstract interfaceleri barındıran ve Concrete classları barındıran klasörler bulunmaktadır.Crud operasyonlarını core katmanından miras alarak gerçekleştirmektedir.Gelebilecek iş kodları için altyapı burada hazırlanır.Objelerin data transferleri için kullanacağı data baseler ve varlıkların bağlantıları Data Access Katmanı'nda yapılandırıldı.
 
 ### DataAccess
 
+&nbsp;&nbsp; &#128196; [Abstract](https://github.com/Serkanydn/ReCapProject/tree/master/DataAccess/Abstract)</br>
+&nbsp;&nbsp; &#128196; [EntityFramework](https://github.com/Serkanydn/ReCapProject/tree/master/DataAccess/Concrete/EntityFramework)</br>
 
 ### Business Katmanı
 Business Katmanı'nda altyapısı hazır olan bütün serviserin yönetimleri yazıldı.Sürekli değişebilen iş kodlarımızı altyapıyı değiştirmeden ekleyebildiğimiz katmandır.Sürekliliğin korunduğu ReCap projemde birçok değişikliğin sadece burada yapılıyor olması yönetimi, sürekli gelişimi çok kolaylaştırmaktadır.
 
 #### &#128194; Concrete
+&nbsp;&nbsp; &#128196; [AuthManager.cs ](https://github.com/Serkanydn/ReCapProject/blob/master/Business/Concrete/AuthManager.cs)</br>
+&nbsp;&nbsp; &#128196; [BrandManager.cs ](https://github.com/Serkanydn/ReCapProject/blob/master/Business/Concrete/BrandManager.cs)</br>
+&nbsp;&nbsp; &#128196; [CarImageManager.cs ](https://github.com/Serkanydn/ReCapProject/blob/master/Business/Concrete/CarImageManager.cs)</br>
+&nbsp;&nbsp; &#128196; [ColorManager.cs ](https://github.com/Serkanydn/ReCapProject/blob/master/Business/Concrete/ColorManager.cs)</br>
+&nbsp;&nbsp; &#128196; [CustomerManager.cs ](https://github.com/Serkanydn/ReCapProject/blob/master/Business/Concrete/CustomerManager.cs)</br>
+&nbsp;&nbsp; &#128196; [PaymentManager.cs ](https://github.com/Serkanydn/ReCapProject/blob/master/Business/Concrete/PaymentManager.cs)</br>
+&nbsp;&nbsp; &#128196; [RentalManager.cs ](https://github.com/Serkanydn/ReCapProject/blob/master/Business/Concrete/RentalManager.cs)</br>
+&nbsp;&nbsp; &#128196; [UserManager.cs ](https://github.com/Serkanydn/ReCapProject/blob/master/Business/Concrete/UserManager.cs)</br>
+
+
 
 

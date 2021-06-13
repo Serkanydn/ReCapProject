@@ -14,7 +14,7 @@ namespace DataAccess.Concrete.EntityFramework
     //Car specific operation
     public class EFCarDal : EfEntityRepositoryBase<Car, ReCapSqlContext>, ICarDal
     {
-        public List<CarDetailDto> GetCarDetailDtos()
+        public List<CarDetailDto> GetCarDetailDtos(Expression<Func<CarDetailDto, bool>> filter = null)
         {
             using (ReCapSqlContext context = new ReCapSqlContext())
             {
@@ -26,11 +26,18 @@ namespace DataAccess.Concrete.EntityFramework
                              select new CarDetailDto
                              {
                                  CarId = car.Id,
+                                 BrandId = brand.Id,
+                                 ColorId = color.Id,
                                  BrandName=brand.BrandName,
                                  ColorName=color.ColorName,
-                                 DailyPrice=car.DailyPrice
+                                 ModelYear=car.ModelYear,
+                                 DailyPrice=car.DailyPrice,
+                                 Description=car.Description,
+                                 CarImages = (from i in context.CarImages
+                                              where car.Id == i.CarId
+                                              select new CarImage { Id = i.Id, CarId = i.CarId, ImagePath = i.ImagePath, Date = i.Date }).ToList()
                              };
-                return result.ToList();
+                return filter == null ? result.ToList() : result.Where(filter).ToList();
             }
         }
     }

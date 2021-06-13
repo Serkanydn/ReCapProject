@@ -13,10 +13,10 @@ namespace Core.Extensions
         {
             foreach (var module in modules)
             {
-                module.Load(serviceCollection);//Her bir module için modulü yükle 
+                module.Load(serviceCollection);
             }
 
-            return ServiceTool.Create(serviceCollection);//Bizim core katmanında dahil olmak üzere ekleyeceğimiz bütün injectionları bir arada toplayabileceğimiz bir yapıya döndü.
+            return ServiceTool.Create(serviceCollection);
         }
 
     }

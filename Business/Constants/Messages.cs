@@ -40,6 +40,7 @@ namespace Business.Constants
         public static string AccessTokenCreated = "Token oluşturuldu";
 
         public static string RentalAdded= "Kiralama Eklendi";
+        internal static string CarImageAdded;
 
         public static string CustomersDetailListed { get; internal set; }
         public static string ColorAdded { get; internal set; }
@@ -49,5 +50,6 @@ namespace Business.Constants
         public static string BrandDeleted { get; internal set; }
         public static string BrandUpdated { get; internal set; }
         public static string CarImageLimit { get; internal set; }
+        public static string PaymentUpdated { get; internal set; }
     }
 }

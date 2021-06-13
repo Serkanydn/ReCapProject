@@ -28,9 +28,9 @@ namespace Business.Concrete
             _carDal = inMemoryCarData;
         }
 
-        [SecuredOperation("product.add,admin")]
-        [ValidationAspect(typeof(CarValidator))]
-        [CacheRemoveAspect("Car.add")]
+       // [SecuredOperation("product.add,admin")]
+        //[ValidationAspect(typeof(CarValidator))]
+        [CacheRemoveAspect("ICarService.Get")]
         public IResult Add(Car car)
         {
            
@@ -52,14 +52,25 @@ namespace Business.Concrete
         }
 
         [CacheAspect]
-        public IDataResult<List<Car>> GetByBrandId(int id)
+      /*  public IDataResult<List<Car>> GetByBrandId(int id)
         {
             return new SuccessDataResult<List<Car>>(_carDal.GetAll(p=>p.BrandId==id));
+        }*/
+        public IDataResult<List<CarDetailDto>> GetCarByBrandId(int id)
+        {
+            return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetailDtos(p => p.BrandId == id));
         }
 
-        public IDataResult<List<Car>> GetByColorId(int id)
+
+
+      /*  public IDataResult<List<Car>> GetByColorId(int id)
         {
             return new SuccessDataResult<List<Car>>(_carDal.GetAll(p => p.ColorId == id));
+        }
+      */
+        public IDataResult<List<CarDetailDto>> GetCarByColorId(int id)
+        {
+            return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetailDtos(p => p.ColorId == id));
         }
 
         public IResult Update(Car car)
@@ -83,6 +94,21 @@ namespace Business.Concrete
             _carDal.Add(car);
             return new SuccessResult(Messages.CarUpdated);
 
+        }
+
+        public IDataResult<List<CarDetailDto>> GetCarDetailsCarById(int CarId)
+        {
+            return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetailDtos(c=>c.CarId==CarId));
+        }
+
+        public IDataResult<List<CarDetailDto>> GetCarByBrandAndColorId(int brandId, int colorId)
+        {
+            return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetailDtos(c=>c.BrandId==brandId && c.ColorId==colorId));
+        }
+
+        public IDataResult<Car> GetCarByCarId(int id)
+        {
+            return new SuccessDataResult<Car>(_carDal.Get(c=>c.Id==id));
         }
     }
 }

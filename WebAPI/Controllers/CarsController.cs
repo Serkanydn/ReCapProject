@@ -48,6 +48,15 @@ namespace WebAPI.Controllers
 
         }
 
+        [HttpPost("delete")]
+        public IActionResult Delete(Car car)
+        {
+            var result = _carService.Delete(car);
+            if (result.Success)
+                return Ok(result);
+            return BadRequest(result);
+
+        }
         [HttpGet("getcardetaildtos")]
         public IActionResult GetCarDetailDtos()
         {
@@ -56,5 +65,50 @@ namespace WebAPI.Controllers
                 return Ok(result);
             return BadRequest(result);
         }
+        [HttpGet("getcardetailsbycarid")]
+        public IActionResult GetCarDetailsCarById(int carId)
+        {
+            var result = _carService.GetCarDetailsCarById(carId);
+            if (result.Success)
+                return Ok(result);
+            return BadRequest(result);
+        }
+
+        [HttpGet("getcarbycarid")]
+        public IActionResult GetCarByCarId(int carId)
+        {
+            var result = _carService.GetCarByCarId(carId);
+            if (result.Success)
+                return Ok(result);
+            return BadRequest(result);
+        }
+
+        [HttpGet("getbybrand")]
+        public IActionResult GetByBrand(int brandId)
+        {
+            var result = _carService.GetCarByBrandId(brandId);
+            if (result.Success)
+                return Ok(result);
+            return BadRequest(result);
+        }
+
+        [HttpGet("getbycolor")]
+        public IActionResult GetByColor(int colorId)
+        {
+            var result = _carService.GetCarByColorId(colorId);
+            if (result.Success)
+                return Ok(result);
+            return BadRequest(result);
+        }
+
+        [HttpGet("getbybrandandcolor")]
+        public IActionResult GetByBrandAndColorId(int brandId, int colorId)
+        {
+            var result = _carService.GetCarByBrandAndColorId(brandId, colorId);
+               if (result.Success)
+                return Ok(result);
+            return BadRequest(result);
+        }
+
     }
 }

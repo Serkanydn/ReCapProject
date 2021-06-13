@@ -37,20 +37,10 @@ namespace WebAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            //services.AddControllers();
-            //services.AddSingleton<ICarService, CarManager>();
-            //services.AddSingleton<ICarDal, EFCarDal>();
-
-            //services.AddSingleton<IColorService, ColorManager>();
-            //services.AddSingleton<IColorDal, EFColorDal>();
-
-            //services.AddSingleton<IRentalService, RentalManager>();
-            //services.AddSingleton<IRentalDal, EfRentalDal>();
-
-            //services.AddSingleton<ICustomerService, CustomerManager>();
-            //services.AddSingleton<ICustomerDal, EfCustomerDal>();
-
+           
             services.AddControllers();
+
+            services.AddCors();
 
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
@@ -83,7 +73,9 @@ namespace WebAPI
             {
                 app.UseDeveloperExceptionPage();
             }
+            app.ConfigureCustomExceptionMiddleware();
 
+            app.UseCors(builder=>builder.WithOrigins("http://localhost:4202").AllowAnyHeader());
             app.UseHttpsRedirection();
 
             app.UseRouting();

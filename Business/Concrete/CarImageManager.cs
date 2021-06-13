@@ -40,7 +40,7 @@ namespace Business.Concrete
             carImage.ImagePath = FileHelper.Add(file);
             carImage.Date = DateTime.Now;
             _carImageDal.Add(carImage);
-            return new SuccessResult(Messages.CarImageListed);
+            return new SuccessResult(Messages.CarImageAdded);
 
 
         }

@@ -1,4 +1,5 @@
-﻿using Core.Entity.Abstract;
+﻿using Core.Entity;
+using Core.Entity.Abstract;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -52,6 +53,8 @@ namespace Core.DataAccess.EntityFramework
                 return filter == null ? context.Set<TEntity>().ToList() : context.Set<TEntity>().Where(filter).ToList();
             }
         }
+
+
 
         public void Update(TEntity entity)
         {

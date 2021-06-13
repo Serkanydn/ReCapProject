@@ -2,7 +2,7 @@
 
 ## 	&#128204; Proje Hakkında
 
-N-Katmanlı Solid mimari yapısı ile hazırlanan, **EntityFramework** kullanarak CRUD operasyonları, **Jwt** teknikleri ile token alarak güvenli bir şekilde kayıt olma ve giriş işlemlerini yapıyoruz. **Caching**, **Validation**, **Transaction**, **Performance** gibi işlemleri Aspect Oriented Programming (AOP) mantığını kullanarak gerçekleştiriyoruz.Proje içerisindeki kaynaklar kolayca değiştirilebilir ve yapılacak olan bütün işlemler için hiçbir şekilde kod değişikliğine gerek duyulmamaktadır.Oluşturulan farklı katmanlar sayesinde **Plug and Play (Tak ve Çalıştır.)** ortamı  oluşturulmuştur.
+&nbsp;&nbsp; N-Katmanlı Solid mimari yapısı ile hazırlanan, **EntityFramework** kullanarak CRUD operasyonları, **Jwt** teknikleri ile token alarak güvenli bir şekilde kayıt olma ve giriş işlemlerini yapıyoruz. **Caching**, **Validation**, **Transaction**, **Performance** gibi işlemleri Aspect Oriented Programming (AOP) mantığını kullanarak gerçekleştiriyoruz.Proje içerisindeki kaynaklar kolayca değiştirilebilir ve yapılacak olan bütün işlemler için hiçbir şekilde kod değişikliğine gerek duyulmamaktadır.Oluşturulan farklı katmanlar sayesinde **Plug and Play (Tak ve Çalıştır.)** ortamı  oluşturulmuştur.
 
 * ### Backend Teknolojileri ve Teknikleri
 
@@ -20,7 +20,7 @@ JWT
 
 * ### Entities Katmanı
 
-**Entities Katmanı**'nda Dtos ve Concrete olmak üzere iki adet klasör bulunmaktadır.Concrete klasörü veri tabanından gelen somut nesnelerin özelliklerini tutmak için, Dtos klasörü ise veri tabanında birbiri ile ilişkili olan nesnelerin ilişkili özelliklerini birlikte kullanabilmek için oluşturulmuştur.
+&nbsp;&nbsp; **Entities Katmanı**'nda Dtos ve Concrete olmak üzere iki adet klasör bulunmaktadır.Concrete klasörü veri tabanından gelen somut nesnelerin özelliklerini tutmak için, Dtos klasörü ise veri tabanında birbiri ile ilişkili olan nesnelerin ilişkili özelliklerini birlikte kullanabilmek için oluşturulmuştur.
 
 #### &#128194; Dtos 
 
@@ -44,11 +44,10 @@ JWT
  &#128196; [Payment.cs ](https://github.com/Serkanydn/ReCapProject/blob/master/Entities/Concrete/Payment.cs)</br>
 
 
-
 * ### Core Katmanı
 
 
-Core Katmanı evrensel bir katmandır. Geliştirilecek her projede kullanılabilir, isimlendirme kuralları ve oluşturulma düzeni sebebi ile oldukça kullanışlıdır. Core Katmanı'nda DataAccess, Entities, Utilities, Aspects, CrossCuttingConcerns, DependencyResolvers ve Extensions klasörleri bulunmaktadır. Aspects klasörü Caching, Validation, Transaction,Performance işlemleri için Autofac attribute altyapısını hazırlar.CrossCuttingConcerns klasöründe Validation ve Cache yönetimi proje içerisinde generics olarak genelleştirildi.DependencyResolvers klasöründe servis konfigürasyonları yapıldı.DataAccess klasöründe bütün CRUD operasyonları ve Databaseler generics olarak yapılandırıldı.Extensions içerisinde Jwt için yönetimi kolaylaştıran genişlemeler yapıldı.Utilities içerisinde iş metodu kurallarının yönetimi kolaylaştırıldı, belge ekleme işlemleri kodlandı, aspectlerin araya girebilmesi için alt yapı hazırlandı, Results yapısı kurularak hata yönetimi, Jwt ve hashing teknikleriyle güvenlik yapılandırıldı.
+&nbsp;&nbsp; Core Katmanı evrensel bir katmandır. Geliştirilecek her projede kullanılabilir, isimlendirme kuralları ve oluşturulma düzeni sebebi ile oldukça kullanışlıdır. Core Katmanı'nda DataAccess, Entities, Utilities, Aspects, CrossCuttingConcerns, DependencyResolvers ve Extensions klasörleri bulunmaktadır. Aspects klasörü Caching, Validation, Transaction,Performance işlemleri için Autofac attribute altyapısını hazırlar.CrossCuttingConcerns klasöründe Validation ve Cache yönetimi proje içerisinde generics olarak genelleştirildi.DependencyResolvers klasöründe servis konfigürasyonları yapıldı.DataAccess klasöründe bütün CRUD operasyonları ve Databaseler generics olarak yapılandırıldı.Extensions içerisinde Jwt için yönetimi kolaylaştıran genişlemeler yapıldı.Utilities içerisinde iş metodu kurallarının yönetimi kolaylaştırıldı, belge ekleme işlemleri kodlandı, aspectlerin araya girebilmesi için alt yapı hazırlandı, Results yapısı kurularak hata yönetimi, Jwt ve hashing teknikleriyle güvenlik yapılandırıldı.
 
 
 #### &#128194; Core
@@ -64,7 +63,7 @@ Core Katmanı evrensel bir katmandır. Geliştirilecek her projede kullanılabil
 
 * ### Data Access Katmanı
 
-Database bağlantısı yapıp gerekli olan datalara ulaşmak için kullandığımız katman.Bu katmanda sadece datalara ulaşmak için gerekli olan kodları yazıyoruz.
+&nbsp;&nbsp; Database bağlantısı yapıp gerekli olan datalara ulaşmak için kullandığımız katman.Bu katmanda sadece datalara ulaşmak için gerekli olan kodları yazıyoruz.
 
 #### &#128194; DataAccess
 
@@ -72,7 +71,7 @@ Database bağlantısı yapıp gerekli olan datalara ulaşmak için kullandığı
  &#128196; [EntityFramework](https://github.com/Serkanydn/ReCapProject/tree/master/DataAccess/Concrete/EntityFramework)</br>
 
 * ### Business Katmanı
-Core katmanında altyapısı hazır olan servislerin yönetimlerini ve iş kurallarını yazdığımız katmandır.
+&nbsp;&nbsp; Core katmanında altyapısı hazır olan servislerin yönetimlerini ve iş kurallarını yazdığımız katmandır.
 
 #### &#128194; Concrete
 > &#128196; [AuthManager.cs ](https://github.com/Serkanydn/ReCapProject/blob/master/Business/Concrete/AuthManager.cs)</br>

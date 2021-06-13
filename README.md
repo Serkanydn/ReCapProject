@@ -1,4 +1,4 @@
-#### ReCapProject - Rent A Car System
+### ReCapProject - Rent A Car System
 
 ## Proje Hakkında
 
@@ -9,7 +9,7 @@ N-Katmanlı Solid mimari yapısı ile hazırlanan, EntityFramework kullanılarak
 MsSql, Asp.Net Core for Restful api,EntityFramework Core,Autofac,FluentValidation
 Layered Architecture Design Pattern,IOC, AOP, Aspects, JWT
 
-## Katmanlar
+# Katmanlar
 
 # Entities Katmanı
 

@@ -13,7 +13,7 @@ Layered Architecture Design Pattern,IOC, AOP, Aspects, JWT
 
 ### Entities Katmanı
 
-Entities Katmanı'nda Dtos ve Concrete olmak üzere iki adet klasör bulunmaktadır.Concrete klasörü veri tabanından gelen somut nesnelerin özelliklerini tutmak için oluşturulmuştur.Dtos klasörü ise veri tabanında birbiri ile ilişkili olan nesnelerin ilişkili özelliklerini birlikte kullanabilmek için oluşturulmuştur.
+**Entities Katmanı**'nda Dtos ve Concrete olmak üzere iki adet klasör bulunmaktadır.Concrete klasörü veri tabanından gelen somut nesnelerin özelliklerini tutmak için oluşturulmuştur.Dtos klasörü ise veri tabanında birbiri ile ilişkili olan nesnelerin ilişkili özelliklerini birlikte kullanabilmek için oluşturulmuştur.
 
 #### Dtos
 
@@ -32,7 +32,7 @@ Core Katmanı evrensel bir katmandır. Geliştirilecek her projede kullanılabil
 #### Core
 
 
-##Data Access Katmanı
+## Data Access Katmanı
 Data Access Katmanı'nda Abstract interfaceleri barındıran ve Concrete classları barındıran klasörler bulunmaktadır.Crud operasyonlarını core katmanından miras alarak gerçekleştirmektedir.Gelebilecek iş kodları için altyapı burada hazırlanır.Objelerin data transferleri için kullanacağı data baseler ve varlıkların bağlantıları Data Access Katmanı'nda yapılandırıldı.
 
 ### DataAccess

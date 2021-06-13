@@ -63,7 +63,8 @@ Core Katmanı evrensel bir katmandır. Geliştirilecek her projede kullanılabil
 
 
 * ### Data Access Katmanı
-Data Access Katmanı'nda Abstract interfaceleri barındıran ve Concrete classları barındıran klasörler bulunmaktadır.Crud operasyonlarını core katmanından miras alarak gerçekleştirmektedir.Gelebilecek iş kodları için altyapı burada hazırlanır.Objelerin data transferleri için kullanacağı data baseler ve varlıkların bağlantıları Data Access Katmanı'nda yapılandırıldı.
+
+Database bağlantısı yapıp gerekli olan datalara ulaşmak için kullandığımız katman.Bu katmanda sadece datalara ulaşmak için gerekli olan kodları yazıyoruz.
 
 #### &#128194; DataAccess
 
@@ -71,7 +72,7 @@ Data Access Katmanı'nda Abstract interfaceleri barındıran ve Concrete classla
  &#128196; [EntityFramework](https://github.com/Serkanydn/ReCapProject/tree/master/DataAccess/Concrete/EntityFramework)</br>
 
 * ### Business Katmanı
-Business Katmanı'nda altyapısı hazır olan bütün serviserin yönetimleri yazıldı.Sürekli değişebilen iş kodlarımızı altyapıyı değiştirmeden ekleyebildiğimiz katmandır.Sürekliliğin korunduğu ReCap projemde birçok değişikliğin sadece burada yapılıyor olması yönetimi, sürekli gelişimi çok kolaylaştırmaktadır.
+Core katmanında altyapısı hazır olan servislerin yönetimlerini ve iş kurallarını yazdığımız katmandır.
 
 #### &#128194; Concrete
 > &#128196; [AuthManager.cs ](https://github.com/Serkanydn/ReCapProject/blob/master/Business/Concrete/AuthManager.cs)</br>

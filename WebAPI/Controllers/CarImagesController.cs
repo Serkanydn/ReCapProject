@@ -41,6 +41,16 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
+        [HttpPost("addrange")]
+        public IActionResult AddRange([FromForm(Name = "Images")] List<IFormFile> files, [FromForm] CarImage carImage)
+        {
+            var result = _carImageService.AddRange(files, carImage);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
 
         [HttpPost("update")]
         public IActionResult Update([FromForm(Name = "Image")] IFormFile file, [FromForm(Name = ("Id"))] int Id)

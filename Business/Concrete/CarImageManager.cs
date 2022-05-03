@@ -45,6 +45,26 @@ namespace Business.Concrete
 
         }
 
+        [ValidationAspect(typeof(CarImageValidator))]
+        public IResult AddRange(List<IFormFile> files, CarImage carImage)
+        {
+
+            foreach (var file in files)
+            {
+                _carImageDal.Add(
+                    new CarImage()
+                    {
+                        CarId = carImage.CarId,
+                        Date = DateTime.Now,
+                        ImagePath = FileHelper.Add(file),
+                    });
+            }
+
+            return new SuccessResult(Messages.CarImageAdded);
+        }
+
+
+
         public IResult Delete(CarImage carImage)
         {
 

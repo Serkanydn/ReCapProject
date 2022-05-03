@@ -14,6 +14,7 @@ namespace DataAccess.Concrete.EntityFramework
         {
             //Database connection 
             optionsBuilder.UseSqlServer(@"Server=(localdb)\MSSQLLocalDB;Database=ReCapSqlDB;Trusted_Connection=True");
+            
         }
 
         //Synchronizes database and class properties
